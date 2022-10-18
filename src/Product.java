@@ -1,22 +1,25 @@
-import java.util.ArrayList;
-
 public class Product {
 
+    private String name;
     private int producedThisYear;
     private int producedLastYear;
     private int soldThisYear;
     private int soldLastYear;
 
-    public Product(int producedThisYear, int producedLastYear, int soldThisYear, int soldLastYear) {
+    public Product(String name, int producedThisYear, int producedLastYear, int soldThisYear, int soldLastYear) {
+        this.name = name;
         this.producedThisYear = producedThisYear;
         this.producedLastYear = producedLastYear;
         this.soldThisYear = soldThisYear;
         this.soldLastYear = soldLastYear;
     }
 
-    @Override
-    public String toString() {
-        return "Demand This Year " + getDemand(soldThisYear, producedThisYear) + " Demand Last Year " + getDemand(soldLastYear, producedLastYear);
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getProducedThisYear() {
@@ -52,7 +55,7 @@ public class Product {
     }
 
     public float getDemand(int sold, int produced) {
-        return (float) sold/produced;
+        return (float) sold/produced*100;
     }
 
 }
